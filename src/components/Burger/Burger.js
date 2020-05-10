@@ -17,13 +17,23 @@ const burger = (props) => {
 		transformedIngredients = <p>Please start adding ingredients</p>;
 	}
 
-	/*let transformedIngredients = [];
+	/*  SIMPLER transformedIngredients CODE
+	let transformedIngredients = [];
 
 	for (let key in props.ingredients) {
 		for (let i = 0; i < props.ingredients[key]; i++) {
 			transformedIngredients.push(<BurgerIngredient key={key + i} type={key} />);
 		}
-	}*/
+	}
+
+	transformedIngredients.reduce((arr, el) => {
+		return arr.concat(el);
+	}, []);
+
+	if (transformedIngredients.length === 0) {
+		transformedIngredients = <p>Please start adding ingredients</p>;
+	}
+	*/
 
 	return (
 		<div className={classes.Burger}>
