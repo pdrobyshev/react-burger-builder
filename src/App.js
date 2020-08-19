@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
-import CheckOut from './containers/CheckOut/CheckOut';
+import Checkout from './containers/Checkout/Checkout';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -9,9 +9,9 @@ class App extends Component {
 		return (
 			<Layout>
 				<Switch>
-					<Route path="/checkout" component={CheckOut} />
+					<Route path="/checkout" component={Checkout} />
 					<Route path="/" exact component={BurgerBuilder} />
-				</Switch>a
+				</Switch>
 			</Layout>
 		);
 	}
