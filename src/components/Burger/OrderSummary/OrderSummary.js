@@ -6,7 +6,8 @@ function OrderSummary(props) {
 	const ingredientSummary = Object.keys(props.ingredients).map((igKey) => {
 		return (
 			<li key={igKey}>
-				<span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {props.ingredients[igKey]}
+				<span style={{ textTransform: 'capitalize' }}>{igKey}</span>:{' '}
+				{props.ingredients[igKey]}
 			</li>
 		);
 	});
@@ -17,7 +18,7 @@ function OrderSummary(props) {
 			<p>A delicious burger with the following ingredients:</p>
 			<ul>{ingredientSummary}</ul>
 			<p>
-				<strong>Total Price: {props.price}</strong>
+				<strong>Total Price: {props.price.toFixed(2)}</strong>
 			</p>
 			<p>Continue to Checkout?</p>
 			<Button btnType="Danger" clicked={props.purchaseCanceled}>
