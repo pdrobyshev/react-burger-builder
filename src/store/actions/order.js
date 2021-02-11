@@ -70,13 +70,15 @@ export const fetchOrders = (token, userId) => {
 		axios
 			.get('/orders.json' + queryParams)
 			.then((res) => {
-				const fetchedOrders = [];
-				for (let key in res.data) {
-					fetchedOrders.push({
-						...res.data[key],
-						id: key,
-					});
-				}
+				// const fetchedOrders = [];
+				// for (let key in res.data) {
+				// 	fetchedOrders.push({
+				// 		...res.data[key],
+				// 		id: key,
+				// 	});
+				// }
+				const fetchedOrders = Object.entries(res.data).map(([id, data]) => ({ id, ...data }));
+				console.log(fetchedOrders);
 				dispatch(fetchOrdersSuccess(fetchedOrders));
 			})
 			.catch((err) => {

@@ -63,11 +63,7 @@ class Auth extends Component {
 
 	submitHandler = (event) => {
 		event.preventDefault();
-		this.props.onAuth(
-			this.state.controls.email.value,
-			this.state.controls.password.value,
-			this.state.isSignUp
-		);
+		this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignUp);
 	};
 
 	switchAuthModeHandler = () => {
@@ -77,13 +73,14 @@ class Auth extends Component {
 	};
 
 	render() {
-		const formElements = [];
-		for (let key in this.state.controls) {
-			formElements.push({
-				id: key,
-				config: this.state.controls[key],
-			});
-		}
+		// const formElements = [];
+		// for (let key in this.state.controls) {
+		// 	formElements.push({
+		// 		id: key,
+		// 		config: this.state.controls[key],
+		// 	});
+		// }
+		const formElements = Object.entries(this.state.controls).map(([id, config]) => ({ id, config }));
 
 		let form = formElements.map((formElement) => (
 			<Input

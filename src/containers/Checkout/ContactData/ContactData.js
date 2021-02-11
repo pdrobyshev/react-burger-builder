@@ -126,21 +126,23 @@ class ContactData extends Component {
 			[inputIdentifier]: updatedFormElement,
 		});
 
-		let formIsValid = true;
-		for (let inputIdentifier in updatedOrderForm) {
-			formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
-		}
+		// let formIsValid = true;
+		// for (let inputIdentifier in updatedOrderForm) {
+		// 	formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+		// }
+		let formIsValid = Object.values(updatedOrderForm).every((input) => input.valid);
 		this.setState({ orderForm: updatedOrderForm, formIsValid: formIsValid });
 	};
 
 	render() {
-		const formElements = [];
-		for (let key in this.state.orderForm) {
-			formElements.push({
-				id: key,
-				config: this.state.orderForm[key],
-			});
-		}
+		// const formElements = [];
+		// for (let key in this.state.orderForm) {
+		// 	formElements.push({
+		// 		id: key,
+		// 		config: this.state.orderForm[key],
+		// 	});
+		// }
+		const formElements = Object.entries(this.state.orderForm).map(([id, config]) => ({ id, config }));
 
 		let form = (
 			<form onSubmit={this.orderHandler}>

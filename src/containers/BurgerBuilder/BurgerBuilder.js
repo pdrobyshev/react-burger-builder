@@ -21,14 +21,15 @@ class BurgerBuilder extends Component {
 	}
 
 	updatePurchaseState = (ingredients) => {
-		const sum = Object.keys(ingredients)
-			.map((igKey) => {
-				return ingredients[igKey];
-			})
-			.reduce((sum, el) => {
-				return sum + el;
-			}, 0);
-		return sum > 0;
+		// const sum = Object.keys(ingredients)
+		// 	.map((igKey) => {
+		// 		return ingredients[igKey];
+		// 	})
+		// 	.reduce((sum, el) => {
+		// 		return sum + el;
+		// 	}, 0);
+		const sum = Object.values(ingredients).some((amount) => amount > 0);
+		return sum;
 	};
 
 	purchaseHandler = () => {
