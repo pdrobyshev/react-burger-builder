@@ -11,7 +11,7 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../store/actions/index';
 import axios from '../../axios-orders';
 
-class BurgerBuilder extends Component {
+export class BurgerBuilder extends Component {
 	state = {
 		purchasing: false,
 	};
@@ -28,8 +28,7 @@ class BurgerBuilder extends Component {
 		// 	.reduce((sum, el) => {
 		// 		return sum + el;
 		// 	}, 0);
-		const sum = Object.values(ingredients).some((amount) => amount > 0);
-		return sum;
+		return Object.values(ingredients).some((amount) => amount > 0);
 	};
 
 	purchaseHandler = () => {
