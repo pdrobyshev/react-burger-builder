@@ -4,7 +4,7 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
 	token: null,
 	userId: null,
-	error: false,
+	error: null,
 	loading: false,
 	authRedirectPath: '/',
 };
