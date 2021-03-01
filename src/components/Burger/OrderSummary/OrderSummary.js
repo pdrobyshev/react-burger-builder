@@ -2,12 +2,11 @@ import React from 'react';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import Button from '../../UI/Button/Button';
 
-function OrderSummary(props) {
+const OrderSummary = (props) => {
 	const ingredientSummary = Object.keys(props.ingredients).map((igKey) => {
 		return (
 			<li key={igKey}>
-				<span style={{ textTransform: 'capitalize' }}>{igKey}</span>:{' '}
-				{props.ingredients[igKey]}
+				<span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {props.ingredients[igKey]}
 			</li>
 		);
 	});
@@ -29,6 +28,6 @@ function OrderSummary(props) {
 			</Button>
 		</Aux>
 	);
-}
+};
 
 export default OrderSummary;
